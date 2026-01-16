@@ -100,7 +100,7 @@ const OrgChart = ({ data }) => {
             <div style="display: flex; align-items: center; gap: ${
               isMobile ? "10px" : "15px"
             };">
-              <div style="position: relative;">
+              <div style="position: relative; flex-shrink: 0;">
                 <img 
                   src="${profileImg}" 
                   alt="${person.name}"
@@ -110,7 +110,8 @@ const OrgChart = ({ data }) => {
                     border-radius: 50%;
                     border: 3px solid white;
                     object-fit: cover;
-                    flex-shrink: 0;
+                    display: block;
+                    max-width: 100%;
                   "
                 />
                 <img 
@@ -125,6 +126,7 @@ const OrgChart = ({ data }) => {
                     position: absolute;
                     bottom: 0;
                     right: 0;
+                    display: block;
                   "
                 />
               </div>
