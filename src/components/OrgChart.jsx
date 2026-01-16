@@ -6,14 +6,7 @@ const OrgChart = ({ data }) => {
   const chartInstance = useRef(null);
 
   const getCardColor = (id) => {
-    const colors = [
-      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-      "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-      "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-    ];
-    return colors[id % colors.length];
+    return "white";
   };
 
   const handleExpandAll = () => {
@@ -48,7 +41,9 @@ const OrgChart = ({ data }) => {
 
   const handleLogout = () => {
     if (confirm("Are you sure you want to logout?")) {
-      window.location.href = "/login";
+      sessionStorage.removeItem('isLoggedIn');
+      const basePath = window.location.pathname.includes('/latest-oc/') ? '/latest-oc/' : '/';
+      window.location.href = basePath + 'login.html';
     }
   };
 
@@ -64,7 +59,7 @@ const OrgChart = ({ data }) => {
       .data(data)
       .svgHeight(containerHeight)
       .nodeWidth(() => (isMobile ? 290 : 320))
-      .nodeHeight(() => (isMobile ? 172 : 200))
+      .nodeHeight(() => (isMobile ? 190 : 220))
       .compact(false)
       .nodeContent((d) => {
         const person = d.data;
@@ -83,6 +78,11 @@ const OrgChart = ({ data }) => {
               .toLowerCase()
               .replace(/\s+/g, "")}.png`
           : `${basePath}flags/default.png`;
+
+        const subordinatesCount = d.children ? d.children.length : 0;
+
+        const totalCount = person._totalSubordinates || 0;
+        const showSubordinates = totalCount > 0;
 
         return `
           <div style="
@@ -107,10 +107,10 @@ const OrgChart = ({ data }) => {
               font-size: ${tinyFont}px;
               line-height: 1.6;overflow: hidden;
             ">
-<table style="color: #000;"><
+<table style="color: #000; width:100%"><
     <tbody>
     <tr>
-            <td rowspan="6">
+            <td rowspan="7">
             <img 
                   src="${profileImg}" 
                   alt="${person.name}"
@@ -159,9 +159,20 @@ const OrgChart = ({ data }) => {
     <tr>
            
             <td> <div>
-                <strong>🏢</strong> ${person.department}
+                <strong>👤</strong> ${person.reportTo || ""}
               </div></td>
     </tr>
+    <tr>
+           
+            <td> <div>
+                 ${
+                   showSubordinates
+                     ? `<strong>👥 Team:</strong> ${totalCount}`
+                     : "&nbsp;"
+                 }
+              </div></td>
+    </tr>
+  
     <tr><td style="text-align:right"> <img 
                   src="${flagImg}" 
                   alt="${person.country}"

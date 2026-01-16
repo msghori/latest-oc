@@ -5,6 +5,14 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // Check authentication
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+      const basePath = window.location.pathname.includes('/latest-oc/') ? '/latest-oc/' : '/';
+      window.location.replace(basePath + 'login.html');
+      return;
+    }
+
     const basePath = import.meta.env.BASE_URL;
     fetch(`${basePath}data.csv`)
       .then(response => response.text())
@@ -26,10 +34,27 @@ function App() {
             phone: obj.phone,
             image: obj.image,
             country: obj.country,
+            reportTo: obj.reportTo,
             parentId: obj.parentId ? parseInt(obj.parentId) : null
           };
         });
-        setData(parsed);
+        
+        // Calculate total subordinates for each person
+        const countSubordinates = (personId) => {
+          const directReports = parsed.filter(p => p.parentId === personId);
+          let total = directReports.length;
+          directReports.forEach(report => {
+            total += countSubordinates(report.id);
+          });
+          return total;
+        };
+        
+        const dataWithCounts = parsed.map(person => ({
+          ...person,
+          _totalSubordinates: countSubordinates(person.id)
+        }));
+        
+        setData(dataWithCounts);
       });
   }, []);
 
