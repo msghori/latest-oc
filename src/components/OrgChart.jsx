@@ -97,7 +97,6 @@ const OrgChart = ({ data }) => {
             gap: ${isMobile ? "8px" : "10px"};
             width: ${cardWidth}px;
             box-sizing: border-box;
-            position: relative;
             overflow: hidden;
           ">
             <div style="
