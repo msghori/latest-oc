@@ -42,8 +42,7 @@ const OrgChart = ({ data }) => {
   const handleLogout = () => {
     if (confirm("Are you sure you want to logout?")) {
       sessionStorage.removeItem('isLoggedIn');
-      const basePath = window.location.pathname.includes('/latest-oc/') ? '/latest-oc/' : '/';
-      window.location.href = basePath + 'login.html';
+      window.location.reload();
     }
   };
 

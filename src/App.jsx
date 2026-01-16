@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import OrgChart from './components/OrgChart'
+import Login from './components/Login'
 
 function App() {
   const [data, setData] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check authentication
-    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-    if (!isLoggedIn) {
-      const basePath = window.location.pathname.includes('/latest-oc/') ? '/latest-oc/' : '/';
-      window.location.replace(basePath + 'login.html');
-      return;
-    }
+    const loggedIn = sessionStorage.getItem('isLoggedIn');
+    setIsLoggedIn(!!loggedIn);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoggedIn) return;
 
     const basePath = import.meta.env.BASE_URL;
     fetch(`${basePath}data.csv`)
@@ -56,7 +57,15 @@ function App() {
         
         setData(dataWithCounts);
       });
-  }, []);
+  }, [isLoggedIn]);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <div className="App" style={{ width: '100%', height: '100%' }}>
