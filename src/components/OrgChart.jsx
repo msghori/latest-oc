@@ -172,7 +172,37 @@ const OrgChart = ({ data }) => {
               font-size: ${tinyFont}px;
               line-height: 1.6;
             ">
+
               <div style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+
+              <img 
+                  src="${profileImg}" 
+                  alt="${person.name}"
+                  style="
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+                <img 
+                  src="${flagImg}" 
+                  alt="${person.country}"
+                  style="
+                    width: ${isMobile ? 18 : 20}px;
+                    height: ${isMobile ? 18 : 20}px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    object-fit: cover;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    display: block;
+                  "
+                />
+
                 <strong>📧</strong> ${person.email}
               </div>
               <div style="margin-bottom: 5px;">
