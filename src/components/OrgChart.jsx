@@ -172,7 +172,57 @@ const OrgChart = ({ data }) => {
               font-size: ${tinyFont}px;
               line-height: 1.6;overflow: hidden;
             ">
-
+<table>
+    <tbody>
+    <tr>
+            <td rowspan="5">
+            <img 
+                  src="${profileImg}" 
+                  alt="${person.name}"
+                  style="
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+                <img 
+                  src="${flagImg}" 
+                  alt="${person.country}"
+                  style="
+                    width: ${isMobile ? 18 : 40}px;
+                    height: ${isMobile ? 18 : 40}px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    object-fit: cover;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    display: block;
+                  "
+                /></td>
+            <td>Naveed Shervani</td>
+    </tr>
+    <tr>
+            
+            <td>+92 03134210903</td>
+    </tr>
+    <tr>
+           
+            <td>lorem iosum</td>
+    </tr>
+    <tr>
+          
+            <td>lorem iosum</td>
+    </tr>
+    <tr>
+           
+            <td>lorem iosum</td>
+    </tr>
+    </tbody>
+</table>
              
 <div style="position:relative; width:40%; float:left; background:blue; display:inline-block;">
               <img 
