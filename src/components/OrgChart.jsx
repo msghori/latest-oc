@@ -71,13 +71,14 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
-      .nodeWidth(() => (isMobile ? 240 : 320))
-      .nodeHeight(() => (isMobile ? 160 : 180))
+      .nodeWidth(() => (isMobile ? 260 : 320))
+      .nodeHeight(() => (isMobile ? 170 : 180))
       .compact(false)
+      .initialExpandLevel(0)
       .nodeContent((d) => {
         const person = d.data;
         const subordinateCount = getSubordinateCount(person.id);
-        const cardWidth = isMobile ? 240 : 320;
+        const cardWidth = isMobile ? 260 : 320;
         const imgSize = isMobile ? 50 : 90;
         const fontSize = isMobile ? 12 : 14;
         const smallFont = isMobile ? 10 : 11;
@@ -98,7 +99,7 @@ const OrgChart = ({ data }) => {
             height: 100%;
             display: flex;
             align-items: center;
-            gap: ${isMobile ? "12px" : "15px"};
+            gap: ${isMobile ? "8px" : "15px"};
             width: ${cardWidth}px;
             position: relative;
           ">
@@ -220,53 +221,53 @@ const OrgChart = ({ data }) => {
         <h1
           style={{
             color: "white",
-            fontSize: window.innerWidth < 768 ? "18px" : "24px",
+            fontSize: window.innerWidth < 768 ? "16px" : "20px",
             fontWeight: "bold",
-            margin: 0,
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            whiteSpace: "nowrap",
+            margin: "0px",
+            padding: "5px 0",
           }}
         >
-          Organization Chart
+          EpicSemi Organization Chart
         </h1>
 
         {/* Controls */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
         <div style={{ display: "flex", gap: "8px", flexWrap: "nowrap" }}>
           <button
             onClick={handleExpandAll}
             style={buttonStyle}
             title="Expand All"
           >
-            ➕
+            <i className="fas fa-expand-arrows-alt"></i>
           </button>
           <button
             onClick={handleCollapseAll}
             style={buttonStyle}
             title="Collapse All"
           >
-            ➖
+            <i className="fas fa-compress-arrows-alt"></i>
           </button>
           <button onClick={handleFit} style={buttonStyle} title="Fit to Screen">
-            🔲
+            <i className="fas fa-expand"></i>
           </button>
           <button onClick={handleZoomIn} style={buttonStyle} title="Zoom In">
-            🔍+
+            <i className="fas fa-search-plus"></i>
           </button>
           <button onClick={handleZoomOut} style={buttonStyle} title="Zoom Out">
-            🔍-
+            <i className="fas fa-search-minus"></i>
           </button>
           <button
             onClick={handleLogout}
             style={{
               ...buttonStyle,
-              background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+              background: "white",
             }}
             title="Logout"
           >
-            🚪
+            <i className="fas fa-sign-out-alt"></i>
           </button>
         </div>
       </div>
@@ -282,7 +283,7 @@ const OrgChart = ({ data }) => {
           WebkitOverflowScrolling: "touch",
           touchAction: "pan-x pan-y",
           position: "relative",
-          paddingTop: "70px",
+          paddingTop: "100px",
         }}
       />
     </>
@@ -290,18 +291,18 @@ const OrgChart = ({ data }) => {
 };
 
 const buttonStyle = {
-  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-  color: "white",
+  background: "#fff",
+  color: "#000",
   border: "none",
   padding: "10px",
-  borderRadius: "8px",
+  borderRadius: "20px",
   cursor: "pointer",
   fontSize: "18px",
   fontWeight: "500",
   transition: "transform 0.2s, box-shadow 0.2s",
   boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-  width: "40px",
-  height: "40px",
+  width: "35px",
+  height: "35px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
