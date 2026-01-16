@@ -115,8 +115,8 @@ Error generating stack: `+o.message+`
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             color: white;
             height: 100%;
-            display: flex;
-            flex-direction: column;
+          
+           
             gap: ${c?"8px":"10px"};
             width: ${w}px;
             box-sizing: border-box;
@@ -132,7 +132,7 @@ Error generating stack: `+o.message+`
                 position: relative;
                 width: ${$}px;
                 height: ${$}px;
-                flex-shrink: 0;
+               
               ">
                 <img 
                   src="${z}" 
