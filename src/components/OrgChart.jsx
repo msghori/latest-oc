@@ -63,12 +63,12 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
-      .nodeWidth(() => (isMobile ? 280 : 320))
-      .nodeHeight(() => (isMobile ? 160 : 280))
+      .nodeWidth(() => (isMobile ? 180 : 320))
+      .nodeHeight(() => (isMobile ? 160 : 200))
       .compact(false)
       .nodeContent((d) => {
         const person = d.data;
-        const cardWidth = isMobile ? 280 : 320;
+        const cardWidth = isMobile ? 180 : 320;
         const imgSize = isMobile ? 50 : 60;
         const fontSize = isMobile ? 14 : 16;
         const smallFont = isMobile ? 11 : 12;
@@ -86,7 +86,7 @@ const OrgChart = ({ data }) => {
 
         return `
           <div style="
-            padding: ${isMobile ? "15px" : "20px"};
+            padding: ${isMobile ? "15px" : "0px"};
             background: ${getCardColor(person.id)};
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -96,19 +96,21 @@ const OrgChart = ({ data }) => {
             width: ${cardWidth}px;
             box-sizing: border-box;
             overflow: hidden;
+            border:4px solid #95b7fa;
           ">
 
             <div style="
-              background: rgba(0,0,0,1);
+              background:#fff;
+              color:#000
               padding: ${isMobile ? "8px" : "10px"};
               border-radius: 8px;
               font-size: ${tinyFont}px;
               line-height: 1.6;overflow: hidden;
             ">
-<table>
+<table style="color: #000;"><
     <tbody>
     <tr>
-            <td rowspan="5">
+            <td rowspan="6">
             <img 
                   src="${profileImg}" 
                   alt="${person.name}"
@@ -121,19 +123,7 @@ const OrgChart = ({ data }) => {
                     display: block;
                   "
                 />
-                <img 
-                  src="${flagImg}" 
-                  alt="${person.country}"
-                  style="
-                    width: ${isMobile ? 18 : 40}px;
-                    height: ${isMobile ? 18 : 40}px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    object-fit: cover;
-                  
-                    display: block;
-                  "
-                />
+               
                 </td>
             <td> <div style="
                   font-weight: bold;
@@ -142,6 +132,7 @@ const OrgChart = ({ data }) => {
                   overflow: hidden;
                   text-overflow: ellipsis;
                   white-space: nowrap;
+                  color: #000;
                 ">
                   ${person.name}
                 </div></td>
@@ -171,6 +162,18 @@ const OrgChart = ({ data }) => {
                 <strong>🏢</strong> ${person.department}
               </div></td>
     </tr>
+    <tr><td style="text-align:right"> <img 
+                  src="${flagImg}" 
+                  alt="${person.country}"
+                  style="
+                    width: ${isMobile ? 18 : 40}px;
+                    height: ${isMobile ? 18 : 40}px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    object-fit: cover;
+                    display: inline-block;
+                  "
+                /></td></tr>
     </tbody>
 </table>
  
