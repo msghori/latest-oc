@@ -131,7 +131,7 @@ Error generating stack: `+o.message+`
 <table>
     <tbody>
     <tr>
-            <td rowspan="5">
+            <td rowspan="6">
             <img 
                   src="${y}" 
                   alt="${v.name}"
@@ -144,19 +144,7 @@ Error generating stack: `+o.message+`
                     display: block;
                   "
                 />
-                <img 
-                  src="${k}" 
-                  alt="${v.country}"
-                  style="
-                    width: ${c?18:40}px;
-                    height: ${c?18:40}px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    object-fit: cover;
-                  
-                    display: block;
-                  "
-                />
+               
                 </td>
             <td> <div style="
                   font-weight: bold;
@@ -194,6 +182,19 @@ Error generating stack: `+o.message+`
                 <strong>🏢</strong> ${v.department}
               </div></td>
     </tr>
+    <tr><td style="text-align-right"> <img 
+                  src="${k}" 
+                  alt="${v.country}"
+                  style="
+                    width: ${c?18:40}px;
+                    height: ${c?18:40}px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    object-fit: cover;
+                  
+                    display: block;
+                  "
+                /></td></tr>
     </tbody>
 </table>
  
