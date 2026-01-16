@@ -92,8 +92,8 @@ const OrgChart = ({ data }) => {
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             color: white;
             height: 100%;
-            display: flex;
-            flex-direction: column;
+          
+           
             gap: ${isMobile ? "8px" : "10px"};
             width: ${cardWidth}px;
             box-sizing: border-box;
@@ -109,7 +109,7 @@ const OrgChart = ({ data }) => {
                 position: relative;
                 width: ${imgSize}px;
                 height: ${imgSize}px;
-                flex-shrink: 0;
+               
               ">
                 <img 
                   src="${profileImg}" 
