@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { OrgChart as D3OrgChart } from '../d3-org-chart.js';
+import React, { useEffect, useRef } from "react";
+import { OrgChart as D3OrgChart } from "../d3-org-chart.js";
 
 const OrgChart = ({ data }) => {
   const chartRef = useRef(null);
@@ -7,11 +7,11 @@ const OrgChart = ({ data }) => {
 
   const getCardColor = (id) => {
     const colors = [
-      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
     ];
     return colors[id % colors.length];
   };
@@ -47,8 +47,8 @@ const OrgChart = ({ data }) => {
   };
 
   const handleLogout = () => {
-    if (confirm('Are you sure you want to logout?')) {
-      window.location.href = '/login';
+    if (confirm("Are you sure you want to logout?")) {
+      window.location.href = "/login";
     }
   };
 
@@ -63,8 +63,8 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
-      .nodeWidth(() => isMobile ? 280 : 320)
-      .nodeHeight(() => isMobile ? 160 : 180)
+      .nodeWidth(() => (isMobile ? 280 : 320))
+      .nodeHeight(() => (isMobile ? 160 : 180))
       .compact(false)
       .nodeContent((d) => {
         const person = d.data;
@@ -73,13 +73,20 @@ const OrgChart = ({ data }) => {
         const fontSize = isMobile ? 14 : 16;
         const smallFont = isMobile ? 11 : 12;
         const tinyFont = isMobile ? 10 : 12;
-        
-        const profileImg = person.image ? `/latest-oc/profile/${person.image}` : '/latest-oc/profile/default.jpg';
-        const flagImg = person.country ? `/latest-oc/flags/${person.country.toLowerCase().replace(/\s+/g, '')}.png` : '/latest-oc/flags/default.png';
-        
+
+        const basePath = import.meta.env.BASE_URL;
+        const profileImg = person.image
+          ? `${basePath}profile/${person.image}`
+          : `${basePath}profile/default.jpg`;
+        const flagImg = person.country
+          ? `${basePath}flags/${person.country
+              .toLowerCase()
+              .replace(/\s+/g, "")}.png`
+          : `${basePath}flags/default.png`;
+
         return `
           <div style="
-            padding: ${isMobile ? '15px' : '20px'};
+            padding: ${isMobile ? "15px" : "20px"};
             background: ${getCardColor(person.id)};
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -87,10 +94,12 @@ const OrgChart = ({ data }) => {
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: ${isMobile ? '8px' : '10px'};
+            gap: ${isMobile ? "8px" : "10px"};
             width: ${cardWidth}px;
           ">
-            <div style="display: flex; align-items: center; gap: ${isMobile ? '10px' : '15px'};">
+            <div style="display: flex; align-items: center; gap: ${
+              isMobile ? "10px" : "15px"
+            };">
               <div style="position: relative;">
                 <img 
                   src="${profileImg}" 
@@ -130,7 +139,7 @@ const OrgChart = ({ data }) => {
             </div>
             <div style="
               background: rgba(255,255,255,0.2);
-              padding: ${isMobile ? '8px' : '10px'};
+              padding: ${isMobile ? "8px" : "10px"};
               border-radius: 8px;
               font-size: ${tinyFont}px;
               line-height: 1.6;
@@ -158,11 +167,11 @@ const OrgChart = ({ data }) => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (chartInstance.current) {
         chartInstance.current.clear();
         chartInstance.current = null;
@@ -180,69 +189,81 @@ const OrgChart = ({ data }) => {
   return (
     <>
       {/* Header with Title and Controls */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        background: 'rgba(10, 10, 10, 0.95)',
-        padding: '15px 20px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderBottom: '2px solid #667eea',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.5)'
-      }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          background: "rgba(10, 10, 10, 0.95)",
+          padding: "15px 20px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          borderBottom: "2px solid #667eea",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
+        }}
+      >
         {/* Title */}
-        <h1 style={{
-          color: 'white',
-          fontSize: '24px',
-          fontWeight: 'bold',
-          margin: 0,
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
-          Organization Chart
+        <h1
+          style={{
+            color: "white",
+            fontSize: "16px",
+            fontWeight: "bold",
+            margin: 0,
+          }}
+        >
+          EpicSemi Org Chart
         </h1>
 
         {/* Controls */}
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-          <button onClick={handleExpandAll} style={buttonStyle} title="Expand All">
-            ➕ Expand
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+          <button
+            onClick={handleExpandAll}
+            style={buttonStyle}
+            title="Expand All"
+          >
+            <i className="fas fa-expand-arrows-alt"></i>
           </button>
-          <button onClick={handleCollapseAll} style={buttonStyle} title="Collapse All">
-            ➖ Collapse
+          <button
+            onClick={handleCollapseAll}
+            style={buttonStyle}
+            title="Collapse All"
+          >
+            <i className="fas fa-compress-arrows-alt"></i>
           </button>
           <button onClick={handleFit} style={buttonStyle} title="Fit to Screen">
-            🔲 Fit
+            <i className="fas fa-expand"></i>
           </button>
           <button onClick={handleZoomIn} style={buttonStyle} title="Zoom In">
-            🔍+ Zoom In
+            <i className="fas fa-search-plus"></i>
           </button>
           <button onClick={handleZoomOut} style={buttonStyle} title="Zoom Out">
-            🔍- Zoom Out
+            <i className="fas fa-search-minus"></i>
           </button>
-          <button onClick={handleLogout} style={{...buttonStyle, background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'}} title="Logout">
-            🚪 Logout
+          <button
+            onClick={handleLogout}
+            style={{ ...buttonStyle, background: "#dc3545" }}
+            title="Logout"
+          >
+            <i className="fas fa-sign-out-alt"></i>
           </button>
         </div>
       </div>
 
       {/* Chart Container */}
-      <div 
-        ref={chartRef} 
-        style={{ 
-          width: '100%', 
-          height: '100%',
-          background: '#0a0a0a',
-          overflow: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          touchAction: 'pan-x pan-y',
-          position: 'relative',
-          paddingTop: '70px'
+      <div
+        ref={chartRef}
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "#0a0a0a",
+          overflow: "auto",
+          WebkitOverflowScrolling: "touch",
+          touchAction: "pan-x pan-y",
+          position: "relative",
+          paddingTop: "70px",
         }}
       />
     </>
@@ -250,17 +271,17 @@ const OrgChart = ({ data }) => {
 };
 
 const buttonStyle = {
-  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  color: 'white',
-  border: 'none',
-  padding: '8px 16px',
-  borderRadius: '8px',
-  cursor: 'pointer',
-  fontSize: '14px',
-  fontWeight: '500',
-  transition: 'transform 0.2s, box-shadow 0.2s',
-  boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-  whiteSpace: 'nowrap'
+  background: "white",
+  color: "black",
+  border: "none",
+  padding: "10px 14px",
+  borderRadius: "8px",
+  cursor: "pointer",
+  fontSize: "16px",
+  fontWeight: "500",
+  transition: "transform 0.2s, box-shadow 0.2s",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+  whiteSpace: "nowrap",
 };
 
 export default OrgChart;

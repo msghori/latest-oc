@@ -5,7 +5,8 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('/latest-oc/data.csv')
+    const basePath = import.meta.env.BASE_URL;
+    fetch(`${basePath}data.csv`)
       .then(response => response.text())
       .then(text => {
         const lines = text.split('\n').filter(line => line.trim());
