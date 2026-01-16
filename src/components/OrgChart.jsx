@@ -92,79 +92,12 @@ const OrgChart = ({ data }) => {
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             color: white;
             height: 100%;
-          
-           
             gap: ${isMobile ? "8px" : "10px"};
             width: ${cardWidth}px;
             box-sizing: border-box;
             overflow: hidden;
           ">
-            <div style="
-              align-items: center;
-              gap: ${isMobile ? "10px" : "15px"};
-              width: 100%;
-              box-sizing: border-box;
-            ">
-              <div style="
-                position: relative;
-                width: ${imgSize}px;
-                height: ${imgSize}px;
-               
-              ">
-                <img 
-                  src="${profileImg}" 
-                  alt="${person.name}"
-                  style="
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    object-fit: cover;
-                    display: block;
-                  "
-                />
-                <img 
-                  src="${flagImg}" 
-                  alt="${person.country}"
-                  style="
-                    width: ${isMobile ? 18 : 20}px;
-                    height: ${isMobile ? 18 : 20}px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    object-fit: cover;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    display: block;
-                  "
-                />
-              </div>
-              <div style="
-                flex: 1;
-                min-width: 0;
-                overflow: hidden;
-              ">
-                <div style="
-                  font-weight: bold;
-                  font-size: ${fontSize}px;
-                  margin-bottom: 4px;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                ">
-                  ${person.name}
-                </div>
-                <div style="
-                  font-size: ${smallFont}px;
-                  opacity: 0.9;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                ">
-                  ${person.position}
-                </div>
-              </div>
-            </div>
+
             <div style="
               background: rgba(0,0,0,1);
               padding: ${isMobile ? "8px" : "10px"};
@@ -197,71 +130,58 @@ const OrgChart = ({ data }) => {
                     border-radius: 50%;
                     border: 2px solid white;
                     object-fit: cover;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
+                  
                     display: block;
                   "
-                /></td>
-            <td>Naveed Shervani</td>
+                />
+                </td>
+            <td> <div style="
+                  font-weight: bold;
+                  font-size: ${fontSize}px;
+                  margin-bottom: 4px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
+                  ${person.name}
+                </div></td>
     </tr>
     <tr>
             
-            <td>+92 03134210903</td>
+            <td><div style="
+                  font-size: ${smallFont}px;
+                  opacity: 0.9;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
+                  ${person.position}
+                </div></td>
     </tr>
     <tr>
            
-            <td>lorem iosum</td>
+            <td><div style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                <strong>📧</strong> ${person.email}
+              </div></td>
     </tr>
     <tr>
           
-            <td>lorem iosum</td>
+            <td> <div style="margin-bottom: 5px;">
+                <strong>📞</strong> ${person.phone}
+              </div></td>
     </tr>
     <tr>
            
-            <td>lorem iosum</td>
+            <td> <div>
+                <strong>🏢</strong> ${person.department}
+              </div></td>
     </tr>
     </tbody>
 </table>
+ 
+ 
              
-<div style="position:relative; width:40%; float:left; background:blue; display:inline-block;">
-              <img 
-                  src="${profileImg}" 
-                  alt="${person.name}"
-                  style="
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-                    border: 3px solid white;
-                    object-fit: cover;
-                    display: block;
-                  "
-                />
-                <img 
-                  src="${flagImg}" 
-                  alt="${person.country}"
-                  style="
-                    width: ${isMobile ? 18 : 40}px;
-                    height: ${isMobile ? 18 : 40}px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    object-fit: cover;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    display: block;
-                  "
-                />
-</div>
- <div style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                <strong>📧</strong> ${person.email}
-              </div>
-              <div style="margin-bottom: 5px;">
-                <strong>📞</strong> ${person.phone}
-              </div>
-              <div>
-                <strong>🏢</strong> ${person.department}
-              </div>
+             
             </div>
           </div>
         `;
