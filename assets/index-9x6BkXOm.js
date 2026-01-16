@@ -123,7 +123,6 @@ Error generating stack: `+o.message+`
             overflow: hidden;
           ">
             <div style="
-              display: flex;
               align-items: center;
               gap: ${c?"10px":"15px"};
               width: 100%;
