@@ -119,19 +119,33 @@ Error generating stack: `+o.message+`
             flex-direction: column;
             gap: ${c?"8px":"10px"};
             width: ${w}px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
           ">
-            <div style="display: flex; align-items: center; gap: ${c?"10px":"15px"};">
-              <div style="position: relative;">
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: ${c?"10px":"15px"};
+              width: 100%;
+              box-sizing: border-box;
+            ">
+              <div style="
+                position: relative;
+                width: ${$}px;
+                height: ${$}px;
+                flex-shrink: 0;
+              ">
                 <img 
                   src="${z}" 
                   alt="${v.name}"
                   style="
-                    width: ${$}px;
-                    height: ${$}px;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 50%;
                     border: 3px solid white;
                     object-fit: cover;
-                    flex-shrink: 0;
+                    display: block;
                   "
                 />
                 <img 
@@ -146,14 +160,32 @@ Error generating stack: `+o.message+`
                     position: absolute;
                     bottom: 0;
                     right: 0;
+                    display: block;
                   "
                 />
               </div>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-weight: bold; font-size: ${h}px; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              <div style="
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+              ">
+                <div style="
+                  font-weight: bold;
+                  font-size: ${h}px;
+                  margin-bottom: 4px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
                   ${v.name}
                 </div>
-                <div style="font-size: ${p}px; opacity: 0.9;">
+                <div style="
+                  font-size: ${p}px;
+                  opacity: 0.9;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
                   ${v.position}
                 </div>
               </div>
