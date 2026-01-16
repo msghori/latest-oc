@@ -224,10 +224,10 @@ const OrgChart = ({ data }) => {
           right: 0,
           zIndex: 1000,
           background: "rgba(10, 10, 10, 0.95)",
-          padding: "15px 20px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          padding: "10px 15px",
+          display: "inline-block",
+          flexDirection: "row",
+          gap: "10px",
           borderBottom: "2px solid #667eea",
           boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
         }}
@@ -239,13 +239,23 @@ const OrgChart = ({ data }) => {
             fontSize: "16px",
             fontWeight: "bold",
             margin: 0,
+            textAlign: "left",
+            display: "inline-block",
           }}
         >
           EpicSemi Org Chart
         </h1>
 
         {/* Controls */}
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "inline-block",
+            gap: "8px",
+            flexWrap: "wrap",
+            textAlign: "right",
+            float: "right",
+          }}
+        >
           <button
             onClick={handleExpandAll}
             style={buttonStyle}
@@ -290,7 +300,7 @@ const OrgChart = ({ data }) => {
           WebkitOverflowScrolling: "touch",
           touchAction: "pan-x pan-y",
           position: "relative",
-          paddingTop: "70px",
+          paddingTop: "100px",
         }}
       />
     </>
@@ -301,14 +311,15 @@ const buttonStyle = {
   background: "white",
   color: "black",
   border: "none",
-  padding: "10px 14px",
+  padding: "8px 12px",
   borderRadius: "8px",
   cursor: "pointer",
-  fontSize: "16px",
+  fontSize: "14px",
   fontWeight: "500",
   transition: "transform 0.2s, box-shadow 0.2s",
   boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
   whiteSpace: "nowrap",
+  margin: "0 2px",
 };
 
 export default OrgChart;
