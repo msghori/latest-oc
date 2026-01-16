@@ -148,15 +148,10 @@ const OrgChart = ({ data }) => {
     </tr>
     <tr>
             
-            <td><div style="
-                  font-size: ${smallFont}px;
-                  opacity: 0.9;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                ">
+            <td>
+
                   ${person.position}
-                </div></td>
+               </td>
     </tr>
     <tr>
            
