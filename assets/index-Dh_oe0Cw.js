@@ -115,46 +115,12 @@ Error generating stack: `+o.message+`
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             color: white;
             height: 100%;
-          
-           
             gap: ${c?"8px":"10px"};
             width: ${w}px;
             box-sizing: border-box;
             overflow: hidden;
           ">
-            <div style="
-              align-items: center;
-              gap: ${c?"10px":"15px"};
-              width: 100%;
-              box-sizing: border-box;
-            ">
-             
-              <div style="
-                flex: 1;
-                min-width: 0;
-                overflow: hidden;
-              ">
-                <div style="
-                  font-weight: bold;
-                  font-size: ${$}px;
-                  margin-bottom: 4px;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                ">
-                  ${v.name}
-                </div>
-                <div style="
-                  font-size: ${h}px;
-                  opacity: 0.9;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                ">
-                  ${v.position}
-                </div>
-              </div>
-            </div>
+
             <div style="
               background: rgba(0,0,0,1);
               padding: ${c?"8px":"10px"};
