@@ -100,7 +100,6 @@ const OrgChart = ({ data }) => {
             overflow: hidden;
           ">
             <div style="
-              display: flex;
               align-items: center;
               gap: ${isMobile ? "10px" : "15px"};
               width: 100%;
