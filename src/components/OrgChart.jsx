@@ -96,22 +96,33 @@ const OrgChart = ({ data }) => {
             flex-direction: column;
             gap: ${isMobile ? "8px" : "10px"};
             width: ${cardWidth}px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
           ">
-            <div style="display: flex; align-items: center; gap: ${
-              isMobile ? "10px" : "15px"
-            };">
-              <div style="position: relative; flex-shrink: 0;">
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: ${isMobile ? "10px" : "15px"};
+              width: 100%;
+              box-sizing: border-box;
+            ">
+              <div style="
+                position: relative;
+                width: ${imgSize}px;
+                height: ${imgSize}px;
+                flex-shrink: 0;
+              ">
                 <img 
                   src="${profileImg}" 
                   alt="${person.name}"
                   style="
-                    width: ${imgSize}px;
-                    height: ${imgSize}px;
+                    width: 100%;
+                    height: 100%;
                     border-radius: 50%;
                     border: 3px solid white;
                     object-fit: cover;
                     display: block;
-                    max-width: 100%;
                   "
                 />
                 <img 
@@ -130,11 +141,28 @@ const OrgChart = ({ data }) => {
                   "
                 />
               </div>
-              <div style="flex: 1; min-width: 0;">
-                <div style="font-weight: bold; font-size: ${fontSize}px; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              <div style="
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+              ">
+                <div style="
+                  font-weight: bold;
+                  font-size: ${fontSize}px;
+                  margin-bottom: 4px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
                   ${person.name}
                 </div>
-                <div style="font-size: ${smallFont}px; opacity: 0.9;">
+                <div style="
+                  font-size: ${smallFont}px;
+                  opacity: 0.9;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                ">
                   ${person.position}
                 </div>
               </div>
