@@ -74,6 +74,9 @@ const OrgChart = ({ data }) => {
         const smallFont = isMobile ? 11 : 12;
         const tinyFont = isMobile ? 10 : 12;
         
+        const profileImg = person.image ? `/latest-oc/profile/${person.image}` : '/latest-oc/profile/default.jpg';
+        const flagImg = person.country ? `/latest-oc/flags/${person.country.toLowerCase().replace(/\s+/g, '')}.png` : '/latest-oc/flags/default.png';
+        
         return `
           <div style="
             padding: ${isMobile ? '15px' : '20px'};
@@ -88,18 +91,34 @@ const OrgChart = ({ data }) => {
             width: ${cardWidth}px;
           ">
             <div style="display: flex; align-items: center; gap: ${isMobile ? '10px' : '15px'};">
-              <img 
-                src="${person.image}" 
-                alt="${person.name}"
-                style="
-                  width: ${imgSize}px;
-                  height: ${imgSize}px;
-                  border-radius: 50%;
-                  border: 3px solid white;
-                  object-fit: cover;
-                  flex-shrink: 0;
-                "
-              />
+              <div style="position: relative;">
+                <img 
+                  src="${profileImg}" 
+                  alt="${person.name}"
+                  style="
+                    width: ${imgSize}px;
+                    height: ${imgSize}px;
+                    border-radius: 50%;
+                    border: 3px solid white;
+                    object-fit: cover;
+                    flex-shrink: 0;
+                  "
+                />
+                <img 
+                  src="${flagImg}" 
+                  alt="${person.country}"
+                  style="
+                    width: ${isMobile ? 18 : 20}px;
+                    height: ${isMobile ? 18 : 20}px;
+                    border-radius: 50%;
+                    border: 2px solid white;
+                    object-fit: cover;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                  "
+                />
+              </div>
               <div style="flex: 1; min-width: 0;">
                 <div style="font-weight: bold; font-size: ${fontSize}px; margin-bottom: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                   ${person.name}
