@@ -1,0 +1,16 @@
+id,name,position,department,email,phone,image,country,reportTo,parentId
+1,Dr. Naveed Sherwani,Chairman & CEO,Executive,naveed@epicsemi.com,+1 503 706 9381,naveed.png,SaudiArabia,Board of Directors,
+2,Dr. Shafy Eltoukhy,CTO & Acting COO,Technology,shafy@epicsemi.com,+1 408 858 6403,shafy.jpg,USA,Dr. Naveed Sherwani,1
+3,Chloe Jian Ma,Chief Business Officer,Finance,chloe@epicsemi.com,+1 408 835 8686,chloe.jpg,USA,Dr. Naveed Sherwani,1
+4,Ayman Sejiny,VP of Corporate and Partner Affairs,Operations,ayman@epicsemi.com,+966 50 545 5030,ayman.jpg,SaudiArabia,Dr. Naveed Sherwani,1
+5,Dr. Ahmad Alfaifi,GM Saudi Arabia,Engineering,ahmad@epicsemi.com,+966 56 571 9584,ahmad.jpg,SaudiArabia,Dr. Naveed Sherwani,1
+6,Collin Lee,VP of APAC Business Development,Engineering,collin@epicsemi.com,+886 915 932 850,collin.jpg,Taiwan,Dr. Shafy Eltoukhy,2
+7,Mureed Bukhari,VP Operations Saudi Arabia,Engineering,mureed@epicsemi.com,+966 50 069 3321,mureed.jpg,SaudiArabia,Chloe Jian Ma,3
+8,Shahzad Ali,Sr. Director IT & Operations,Finance,shahzad@epicsemi.com,+92 300 429 3458,shahzad.jpg,Pakistan,Chloe Jian Ma,3
+9,Muhammad Shoaib Ghori,Front End Web Developer,Finance,shoaib@epicsemi.com,+92 313 421 0903,shoaib.jpg,Pakistan,Shahzad Ali,8
+10,Sualeha Saleem,Sr. Graphic & UI Designer,Operations,sualeha@epicsemi.com,+92 342 418 2212,sualeha.png,Pakistan,Shahzad Ali,8
+11,Ali Sana,Sr. Director Corp Dev,Engineering,ali@epicsemi.com,+1 669 233 9350,ali.png,USA,Dr. Naveed Sherwani,1
+12,Andy Lu,Senior Research Analyst,Engineering,andy@epicsemi.com,+1 814 812 6511,andy.jpg,USA,Chloe Jian Ma,3
+13,Lynn Lu,Project Manager Taiwan Sales,Engineering,lynn@epicsemi.com,+886 928 232 502,lynn.jpeg,Taiwan,Collin Lee,6
+14,Syed Meesum Raza,Sales Executive,Engineering,meesum.raza@epicsemi.com,+966 56 628 5016,meesum.jpg,SaudiArabia,Mureed Bukhari,7
+15,BMuhammad Irshad,Pre Sales Engineer,Engineering,m.irshad@epicsemi.com,+966 53 784 9136,irshad.jpg,SaudiArabia,Mureed Bukhari,7
