@@ -64,7 +64,7 @@ const OrgChart = ({ data }) => {
       .data(data)
       .svgHeight(containerHeight)
       .nodeWidth(() => (isMobile ? 280 : 320))
-      .nodeHeight(() => (isMobile ? 160 : 180))
+      .nodeHeight(() => (isMobile ? 160 : 280))
       .compact(false)
       .nodeContent((d) => {
         const person = d.data;
@@ -166,15 +166,15 @@ const OrgChart = ({ data }) => {
               </div>
             </div>
             <div style="
-              background: rgba(255,255,255,0.2);
+              background: rgba(0,0,0,1);
               padding: ${isMobile ? "8px" : "10px"};
               border-radius: 8px;
               font-size: ${tinyFont}px;
-              line-height: 1.6;
+              line-height: 1.6;overflow: hidden;
             ">
 
-              <div style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-
+             
+<div style="position:relative; width:40%; float:left; background:blue; display:inline-block;">
               <img 
                   src="${profileImg}" 
                   alt="${person.name}"
@@ -191,8 +191,8 @@ const OrgChart = ({ data }) => {
                   src="${flagImg}" 
                   alt="${person.country}"
                   style="
-                    width: ${isMobile ? 18 : 20}px;
-                    height: ${isMobile ? 18 : 20}px;
+                    width: ${isMobile ? 18 : 40}px;
+                    height: ${isMobile ? 18 : 40}px;
                     border-radius: 50%;
                     border: 2px solid white;
                     object-fit: cover;
@@ -202,7 +202,8 @@ const OrgChart = ({ data }) => {
                     display: block;
                   "
                 />
-
+</div>
+ <div style="margin-bottom: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                 <strong>📧</strong> ${person.email}
               </div>
               <div style="margin-bottom: 5px;">
