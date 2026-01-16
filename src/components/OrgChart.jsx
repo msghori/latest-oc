@@ -71,10 +71,14 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
+      .svgWidth(window.innerWidth)
       .nodeWidth(() => (isMobile ? 260 : 320))
       .nodeHeight(() => (isMobile ? 170 : 180))
       .compact(false)
       .initialExpandLevel(0)
+      .buttonContent(({ node }) => {
+        return `<div style="padding: 3px; font-size: 10px; margin: auto auto; background-color: #95b7fa; border-radius: 5px; color: white; font-weight: bold; cursor: pointer;">${node.children ? '-' : '+'}</div>`;
+      })
       .nodeContent((d) => {
         const person = d.data;
         const subordinateCount = getSubordinateCount(person.id);
@@ -277,13 +281,15 @@ const OrgChart = ({ data }) => {
         ref={chartRef}
         style={{
           width: "100%",
-          height: "100%",
+          height: "100vh",
           background: "#0a0a0a",
           overflow: "auto",
           WebkitOverflowScrolling: "touch",
-          touchAction: "pan-x pan-y",
-          position: "relative",
-          paddingTop: "100px",
+          touchAction: "manipulation",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          paddingTop: "80px",
         }}
       />
     </>
