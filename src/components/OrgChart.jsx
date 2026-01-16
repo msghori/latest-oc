@@ -63,12 +63,12 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
-      .nodeWidth(() => (isMobile ? 180 : 320))
-      .nodeHeight(() => (isMobile ? 160 : 200))
+      .nodeWidth(() => (isMobile ? 290 : 320))
+      .nodeHeight(() => (isMobile ? 172 : 200))
       .compact(false)
       .nodeContent((d) => {
         const person = d.data;
-        const cardWidth = isMobile ? 180 : 320;
+        const cardWidth = isMobile ? 320 : 320;
         const imgSize = isMobile ? 50 : 60;
         const fontSize = isMobile ? 14 : 16;
         const smallFont = isMobile ? 11 : 12;
@@ -86,7 +86,7 @@ const OrgChart = ({ data }) => {
 
         return `
           <div style="
-            padding: ${isMobile ? "15px" : "0px"};
+            padding: ${isMobile ? "0px" : "0px"};
             background: ${getCardColor(person.id)};
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -118,7 +118,7 @@ const OrgChart = ({ data }) => {
                     width: 100px;
                     height: 100px;
                     border-radius: 50%;
-                    border: 3px solid white;
+                    border: 2px solid #99b8f8;
                     object-fit: cover;
                     display: block;
                   "
@@ -166,10 +166,10 @@ const OrgChart = ({ data }) => {
                   src="${flagImg}" 
                   alt="${person.country}"
                   style="
-                    width: ${isMobile ? 18 : 40}px;
-                    height: ${isMobile ? 18 : 40}px;
+                    width: ${isMobile ? 30 : 40}px;
+                    height: ${isMobile ? 30 : 40}px;
                     border-radius: 50%;
-                    border: 2px solid white;
+                    border: 1px solid #99b8f8;
                     object-fit: cover;
                     display: inline-block;
                   "
