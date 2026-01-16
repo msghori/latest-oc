@@ -120,7 +120,6 @@ Error generating stack: `+o.message+`
             gap: ${c?"8px":"10px"};
             width: ${w}px;
             box-sizing: border-box;
-            position: relative;
             overflow: hidden;
           ">
             <div style="
