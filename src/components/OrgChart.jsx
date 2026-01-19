@@ -228,6 +228,7 @@ const OrgChart = ({ data }) => {
     <>
       {/* Header with Title and Controls */}
       <div
+        className="headerTitle"
         style={{
           position: "absolute",
           top: 0,
@@ -250,6 +251,7 @@ const OrgChart = ({ data }) => {
             fontSize: "16px",
             fontWeight: "bold",
             margin: 0,
+            paddingTop: "10px",
             textAlign: "left",
             display: "inline-block",
           }}

@@ -34,7 +34,21 @@ body {
   align-items: center !important;
 }
 @media (max-width: 768px) {
+  .headerTitle h1 {
+    padding: 0 0 10px 0 !important;
+  }
   .canvasDiv {
     overflow: "auto" !important;
+    background: red !important;
+  }
+  .login-container {
+    width: 280px !important;
+    padding: 20px !important;
+  }
+  .loginHeader h2 {
+    font-size: 17px !important;
+  }
+  .loginHeader img {
+    max-width: 120px !important;
   }
 }
