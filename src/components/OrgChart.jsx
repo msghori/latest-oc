@@ -41,7 +41,7 @@ const OrgChart = ({ data }) => {
 
   const handleLogout = () => {
     if (confirm("Are you sure you want to logout?")) {
-      sessionStorage.removeItem('isLoggedIn');
+      sessionStorage.removeItem("isLoggedIn");
       window.location.reload();
     }
   };
@@ -57,6 +57,7 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
+      .initialZoom(0.8)
       .nodeWidth(() => (isMobile ? 290 : 320))
       .nodeHeight(() => (isMobile ? 190 : 220))
       .compact(false)
@@ -301,16 +302,17 @@ const OrgChart = ({ data }) => {
 
       {/* Chart Container */}
       <div
+        className="canvasDiv"
         ref={chartRef}
         style={{
           width: "100%",
           height: "100%",
           background: "#0a0a0a",
-          overflow: "auto",
+          overflow: "hidden",
           WebkitOverflowScrolling: "touch",
           touchAction: "pan-x pan-y",
           position: "relative",
-          paddingTop: "100px",
+          paddingTop: "70px",
         }}
       />
     </>

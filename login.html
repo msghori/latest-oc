@@ -19,11 +19,11 @@
 
         .login-container {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 300px;
         }
 
         .login-header {
@@ -32,6 +32,7 @@
         }
 
         .login-header h2 {
+            font-size: 20px;
             color: #333;
             margin-bottom: 10px;
         }
@@ -84,14 +85,23 @@
             margin-top: 15px;
             display: none;
         }
+
+        @media screen and (max-width: 768px) {
+            .login-container {
+                width: 200px;
+            }
+
+            .login-header h2 {
+                font-size: 17px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="login-container">
         <div class="login-header">
-            <img id="logoImg" src="" alt="Epic Semi Logo"
-                style="max-width: 200px; height: auto; margin-bottom: 20px;">
+            <img id="logoImg" src="" alt="Epic Semi Logo" style="max-width: 150px; height: auto; margin-bottom: 20px;">
             <h2>Epic Semi Organization Chart</h2>
             <p>Please login to continue</p>
         </div>
@@ -119,7 +129,7 @@
             }
             return '/';
         };
-        
+
         const basePath = getBasePath();
         document.getElementById('logoImg').src = basePath + 'images/epicsemi.png';
 
