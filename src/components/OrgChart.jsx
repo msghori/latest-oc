@@ -57,7 +57,7 @@ const OrgChart = ({ data }) => {
       .container(chartRef.current)
       .data(data)
       .svgHeight(containerHeight)
-      .initialZoom(0.8)
+      .initialZoom(0.9)
       .nodeWidth(() => (isMobile ? 290 : 320))
       .nodeHeight(() => (isMobile ? 190 : 220))
       .compact(false)

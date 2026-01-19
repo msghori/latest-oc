@@ -33,13 +33,22 @@ body {
   justify-content: center !important;
   align-items: center !important;
 }
+
+.svg-chart-container {
+  height: 100% !important;
+}
+
+.svg-chart-container g.chart {
+  height: 100% !important;
+}
+
 @media (max-width: 768px) {
   .headerTitle h1 {
     padding: 0 0 10px 0 !important;
   }
   .canvasDiv {
     overflow: "auto" !important;
-    background: red !important;
+    height: 100% !important;
   }
   .login-container {
     width: 280px !important;
